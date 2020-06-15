@@ -1,0 +1,14 @@
+{
+    "name": "mane-olawale/larahelpy",
+    "description": "A lite laravel package to tweaking your project for conveniency and fun.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ilesanmi Olawale",
+            "email": "horlwaley001@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
