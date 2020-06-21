@@ -28,7 +28,7 @@ trait ViewData
     {
         self::_fetchDriver();
         return view($view)->with( static::_data() );
-        
+
     }
 
 
@@ -48,7 +48,7 @@ trait ViewData
     {
         if (!is_null(static::$currentViewDriver) && is_array(static::$currentViewDriver)) return;
 
-        $drivers = config('tweaky.viewdrivers');
+        $drivers = config('tweaky.viewdrivers', []);
 
         if (isset($drivers[static::$viewDriver])){
 
