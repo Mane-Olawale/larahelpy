@@ -1,6 +1,6 @@
 {
     "name": "mane-olawale/laratweaky",
-    "description": "A lite laravel package to tweaking your project for conveniency and fun.",
+    "description": "A lite laravel package to tweak your project for ease.",
     "type": "library",
     "license": "MIT",
     "homepage": "https://github.com/mane-olawale/laratweaky",
@@ -22,7 +22,10 @@
     "autoload": {
         "psr-4": {
             "Laratweaky\\": "src/"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "autoload-dev": {
     },

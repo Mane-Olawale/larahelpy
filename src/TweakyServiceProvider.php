@@ -9,6 +9,7 @@ use Illuminate\Routing\Router;
 use Laratweaky\Facades\Tweaky as Facade;
 use Laratweaky\Commands\ServeCommand;
 use Laratweaky\Commands\InstallCommand;
+use Laratweaky\Commands\TweakyServeCommand;
 use Laratweaky\Providers\ViewServiceProvider;
 use Laratweaky\Providers\RouteServiceProvider;
 
@@ -146,7 +147,8 @@ class TweakyServiceProvider extends ServiceProvider
             $this->commands([
 
                 InstallCommand::class,
-                ServeCommand::class
+                ServeCommand::class,
+                TweakyServeCommand::class
 
             ]);
 

@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Laratweaky\Traits\Commands\ServeTrait;
 
-class ServeCommand extends Command
+class TweakyServeCommand extends Command
 {
     use ServeTrait;
     
@@ -15,7 +15,7 @@ class ServeCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'serve:this';
+    protected $signature = 'tweaky:serve';
 
     /**
      * The console command description.
@@ -33,6 +33,9 @@ class ServeCommand extends Command
     {
         parent::__construct();
     }
+
+
+
 
 
 }

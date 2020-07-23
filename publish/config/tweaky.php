@@ -2,16 +2,48 @@
 
 return [
 
-
     /**
-     * The port for serve:this 
+     * Development server configuration.
      * 
-     * @since 1.0
+     *  @since 1.0
      * 
-     * @var string
+     * @var array
      */
+    'server' => [
+        
+        /**
+         * The port for serve:this 
+         * 
+         * @since 1.0
+         * 
+         * @var string
+         */
 
-    'port' => '8000',
+        'port' => '8100',
+
+
+        /**
+         * The port for serve:this 
+         * 
+         * @since 1.0
+         * 
+         * @var string
+         */
+    
+        'host' => '127.0.0.1',
+
+
+        /**
+         * The port for serve:this 
+         * 
+         * @since 1.0
+         * 
+         * @var int
+         */
+    
+        'tries' => 10,
+
+    ],
 
 
 

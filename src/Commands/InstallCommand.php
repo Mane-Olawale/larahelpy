@@ -19,7 +19,7 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $description = 'This installs Laratweaky';
+    protected $description = 'Installs Laratweaky';
 
     /**
      * Create a new command instance.
@@ -43,12 +43,17 @@ class InstallCommand extends Command
     public function handle()
     {
         $this->line("<info>Installing Laravel Tweaky...</info>");
+        $this->line("");
+        sleep(2);
 
         $this->call('vendor:publish', [
 
             '--tag' => 'tweaky.config'
 
         ]);
+
+        $this->line("");
+        sleep(2);
 
         if (tweaky()->installed()){
 

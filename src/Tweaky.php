@@ -24,7 +24,7 @@ final class Tweaky
      * 
      * @var string
      */
-    private $root;
+    public $root;
 
 
     /**
@@ -34,7 +34,27 @@ final class Tweaky
      * 
      * @var string
      */
-    private $port;
+    public $port;
+
+
+    /**
+     * The server Port
+     * 
+     * @since 1.0
+     * 
+     * @var string
+     */
+    public $host;
+
+
+    /**
+     * The server Port
+     * 
+     * @since 1.0
+     * 
+     * @var string
+     */
+    private $tries;
 
 
 
@@ -63,7 +83,7 @@ final class Tweaky
     public static function instance() : self
     {
 
-        return app(static::class);
+        return app('tweaky');
 
     }
 
@@ -146,8 +166,40 @@ final class Tweaky
      */
     public function boot() : void
     {
+        if (!$this->installed()) return;
 
-        $this->port( config('tweaky.port', '8000') );
+        if ( !empty(config('tweaky.server.port', '') )) {
+
+            $this->port( config('tweaky.server.port', '8000') );
+
+        }else{
+
+            throw new \Exception('Invalid port: port not properly configured.');
+
+        }
+
+
+        if ( !empty(config('tweaky.server.host', '') )) {
+
+            $this->host( config('tweaky.server.host', '127.0.0.1') );
+
+        }else{
+
+            throw new \Exception('Invalid host: host not properly configured.');
+
+        }
+
+
+        if ( !empty(config('tweaky.server.tries', '') )) {
+
+            $this->tries( config('tweaky.server.tries', '10') );
+
+        }else{
+
+            throw new \Exception('Invalid tries: tries not properly configured.');
+
+        }
+        
 
     }
 
@@ -156,7 +208,7 @@ final class Tweaky
 
 
     /**
-     * Get and Retrieve Tweaky port
+     * Set and Retrieve Tweaky port
      * 
      * @since 1.0
      * 
@@ -175,11 +227,79 @@ final class Tweaky
 
             if ( is_numeric( $port ) ){
                 
-                $this->port = $port;
+                return $this->port = $port;
 
             }else{
 
-                throw new \Exception("Invalid port: port must be numeric.");
+                throw new \Exception('Invalid port: port must be numeric.');
+
+            }
+
+        }
+
+    }
+
+
+    /**
+     * Set and Retrieve Tweaky server ip
+     * 
+     * @since 1.0
+     * 
+     * @param string $host
+     * 
+     * @return void|string
+     */
+    public function host( string $host = '' )
+    {
+
+        if ( empty($host) ){
+
+            return $this->host;
+
+        }else{
+
+            if ( is_string( $host ) ){
+                
+                return $this->host = $host;
+
+            }else{
+
+                throw new \Exception("Invalid host: host must be string.");
+
+            }
+
+        }
+
+    }
+
+
+
+
+    /**
+     * Set and Retrieve the number of time Tweaky adjust Port
+     * 
+     * @since 1.0
+     * 
+     * @param string $tries
+     * 
+     * @return void|string
+     */
+    public function tries( string $tries = '' )
+    {
+
+        if ( empty($tries) ){
+
+            return $this->tries;
+
+        }else{
+
+            if ( is_numeric( $tries ) ){
+                
+                return $this->tries = $tries;
+
+            }else{
+
+                throw new \Exception("Invalid tries: tries must be string.");
 
             }
 
